@@ -65,6 +65,47 @@ map.on('style.load', function() {
 
   });
 
+  // Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+  closeButton: false,
+  closeOnClick: false
+});
+
+map.on('mousemove', function (e) {
+  // query for the features under the mouse, but only in the buildings layer
+  var features = map.queryRenderedFeatures(e.point, {
+      layers: ['buildings-layer'],
+  });
+
+  if (features.length > 0) {
+     // show the popup
+     // Populate the popup and set its coordinates
+     // based on the feature found.
+
+     var hoveredFeature = features[0]
+     var address = hoveredFeature.properties.AddressSt
+     var floors = hoveredFeature.properties.FloorsProp
+
+     var popupContent = `
+       <div>
+         ${address}<br/>
+         ${floors}
+       </div>
+     `
+
+     popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+     map.getCanvas().style.cursor = 'pointer';
+ } else {
+   // remove the Popup
+   popup.remove();
+
+   map.getCanvas().style.cursor = '';
+ }
+
+
+});
+
 });
 
 

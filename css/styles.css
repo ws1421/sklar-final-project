@@ -1,13 +1,23 @@
-html, body, .container, #sidebar, #mapContainer {
+html, body, .main-container, #sidebar, #mapContainer {
   height: 100%;
   margin: 0;
 }
 
-
-
-.container {
+body {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  }
+
+.navbar-brand {
+  font-family: 'Helvetica' !important;
+}
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+    width: 100%;
+    overflow-y: hidden;
 }
 
 #sidebar {
@@ -32,11 +42,7 @@ h1 {
 
 #mapContainer {
   flex-grow: 1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-}
+  }
 
 #legend {
   background-color: #fff;
