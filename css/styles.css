@@ -1,0 +1,52 @@
+html, body, .container, #sidebar, #mapContainer {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+#sidebar {
+  background: gray;
+  width: 320px;
+  }
+
+h1 {
+  font-size: 20px;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#callToAction {
+  font-size: 16px;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  text-align: center;
+}
+
+#mapContainer {
+  flex-grow: 1;
+}
+
+#legend {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 5px;
+  left: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 300px;
+  width: 250px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+#legend div span {
+border-radius: 50%;
+display: inline-block;
+height: 10px;
+margin-right: 5px;
+width: 10px;
+}
