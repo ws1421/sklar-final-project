@@ -40,16 +40,16 @@ map.on('style.load', function() {
           'linear'
         ],
         ['get', 'ClassANet'],
-        4, 1,
-        19, 3,
-        39, 5,
-        59, 7,
-        79, 9,
-        99, 11,
-        199, 13,
-        399, 15,
-        599, 17,
-        999, 19
+        4, 5,
+        19, 8,
+        39, 11,
+        59, 14,
+        79, 17,
+        99, 20,
+        199, 23,
+        399, 26,
+        599, 29,
+        999, 32
       ],
 // color circles based on under construction or completed
       'circle-color': [
@@ -83,13 +83,20 @@ map.on('mousemove', function (e) {
      // based on the feature found.
 
      var hoveredFeature = features[0]
-     var address = hoveredFeature.properties.AddressSt
+     var address = hoveredFeature.properties.AddressNum
+     var street = hoveredFeature.properties.AddressSt
      var floors = hoveredFeature.properties.FloorsProp
+     var units = hoveredFeature.properties.ClassANet
+     var yearComplete = hoveredFeature.properties.CompltYear
+     var yearPermit = hoveredFeature.properties.PermitYear
 
      var popupContent = `
        <div>
-         ${address}<br/>
-         ${floors}
+         ${address} ${street}<br/>
+         ${floors} Stories<br/>
+         ${units} New Units<br/>
+         Permitted ${yearPermit}<br/>
+         Completed ${yearComplete}
        </div>
      `
 
@@ -107,7 +114,3 @@ map.on('mousemove', function (e) {
 });
 
 });
-
-
-
-// }});
